@@ -7,7 +7,7 @@ Add --adv-settings to your Streamlabs OBS shortcut, open your settings, enable w
 ## Requirements
 This plugin uses the native WebSocket support found in Windows 8 & higher. This means that any application that uses this library must be running Windows 8 or higher.
 
-##Credits
+## Credits
 This plugin uses https://github.com/TyrenDe/streamdeck-client-csharp/ to power it, along with https://github.com/StephenMP/SLOBSharp to communicate with SL OBS.
 
 ## License
