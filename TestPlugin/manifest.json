@@ -1,0 +1,58 @@
+{
+  "Actions": [
+	{
+      "Icon": "Images/icon",
+      "Name": "SL OBS Audio Source - Volume Up",
+      "States": [
+        {
+          "Image": "Images/action1",
+          "TitleAlignment": "middle",
+          "FontSize": "17"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Increases the volume of the selected audio source",
+      "UUID": "com.aallen.slobsvolume.volumeup",
+	  "PropertyInspectorPath": "PropertyInspector/AudioSource/Index.html"
+    },
+	{
+      "Icon": "Images/icon",
+      "Name": "SL OBS Audio Source - Volume Down",
+      "States": [
+        {
+          "Image": "Images/action1",
+          "TitleAlignment": "middle",
+          "FontSize": "17"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Increases the volume of the selected audio source",
+      "UUID": "com.aallen.slobsvolume.volumedown",
+	  "PropertyInspectorPath": "PropertyInspector/AudioSource/Index.html"
+    }
+  ],
+  "Author": "Athene Allen",
+  "Description": "Simple volume changer for Streamlabs audio streams",
+  "Name": "SLOBS Volume Changer",
+  "Icon": "Images/pluginIcon",
+  "URL": "http://gnargle.github.io",
+  "Version": "0.1",
+  "CodePath": "slobsaudio.exe",
+  "Category": "SLOBS Audio",
+  "CategoryIcon": "Images/categoryIcon",
+  "SDKVersion":  2,
+  "Software": {
+    "MinimumVersion": "4.1"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "ApplicationsToMonitor": {
+    "windows": [
+      "notepad.exe"
+    ]
+  }
+}

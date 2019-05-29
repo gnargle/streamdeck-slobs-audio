@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Stephen Porter</Authors>
+    <Company />
+    <Description>A .NET Standard Client library used to integrate with StreamLabs OBS</Description>
+    <PackageLicenseUrl>https://github.com/StephenMP/SLOBSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/StephenMP/SLOBSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StephenMP/SLOBSharp</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.1.4</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+</Project>
