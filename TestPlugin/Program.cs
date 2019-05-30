@@ -25,7 +25,7 @@ namespace SlobsAudio
 
         private static SlobsClient _client;
         private static StreamDeckConnection connection;
-        private const bool ENABLE_LOG = true;
+        private static bool ENABLE_LOG = false;
         
         public class Options
         {
@@ -144,6 +144,10 @@ namespace SlobsAudio
         private static void LogError(string context, string error)
         {
             if (!ENABLE_LOG) return;
+            if (!File.Exists("logfile.log"))
+            {
+                File.Create("logfile.log");
+            }
             while (IsFileLocked("logfile.log"));
             var text = File.ReadAllLines("logfile.log").ToList();
             text.Add($"{DateTime.Now}: ERROR: {context} - {error}");
@@ -153,6 +157,10 @@ namespace SlobsAudio
         private static void LogMessage(string context, string message)
         {
             if (!ENABLE_LOG) return;
+            if (!File.Exists("logfile.log"))
+            {
+                File.Create("logfile.log");
+            }
             while (IsFileLocked("logfile.log"));
             var text = File.ReadAllLines("logfile.log").ToList();
             text.Add($"{DateTime.Now}: Message: {context} - {message}");
@@ -166,11 +174,7 @@ namespace SlobsAudio
             // Uncomment this line of code to allow for debugging
             //while (!System.Diagnostics.Debugger.IsAttached) { System.Threading.Thread.Sleep(100); }
             var connected = false;
-            var attemptNum = 0;
-            if (!File.Exists("logfile.log"))
-            {
-                File.Create("logfile.log");
-            }
+            var attemptNum = 0;            
             while (!connected) {
                 try
                 {
@@ -307,11 +311,6 @@ namespace SlobsAudio
                 }
             };
 
-            /*connection.OnKeyUp += (sender, args) =>
-            {
-                System.Diagnostics.Debug.WriteLine($"KeyDown");
-            };*/
-
             connection.OnDidReceiveSettings += (sender, args) => {             
                 lock (settings)
                 {
@@ -320,36 +319,8 @@ namespace SlobsAudio
    
             };
 
-            /*connection.OnWillDisappear += (sender, args) =>
-            {
-                lock (counters)
-                {
-                    if (counters.ContainsKey(args.Event.Context))
-                    {
-                        counters.Remove(args.Event.Context);
-                    }
-                }
-
-                lock (images)
-                {
-                    if (images.Contains(args.Event.Context))
-                    {
-                        images.Remove(args.Event.Context);
-                    }
-                }
-
-                lock (settings)
-                {
-                    if (settings.ContainsKey(args.Event.Context))
-                    {
-                        settings.Remove(args.Event.Context);
-                    }
-                }
-            };*/
-
             // Start the connection
             connection.Run();
-
 
             // Wait for up to 10 seconds to connect
             if (connectEvent.WaitOne(TimeSpan.FromSeconds(10)))
